@@ -1,7 +1,31 @@
 <script>
-export default {
-  name: 'ProjectsList'
+import ProjectCard from './ProjectCard.vue';
+import axios from 'axios';
 
+export default {
+  name: 'ProjectsList',
+  data() {
+    return {
+      projects: []
+    }
+  },
+  components: {
+    ProjectCard
+  },
+  methods: {
+    getProjectsFromApi() {
+      // Funzione che prende i projects dall'API 
+      axios.get('http://127.0.0.1:8000/api/projects')
+        .then((response) => {
+          //console.log(response);
+          this.projects = response.data.results;
+        });
+
+    }
+  },
+  mounted() {
+    this.getProjectsFromApi()
+  }
 }
 </script>
 
@@ -9,23 +33,14 @@ export default {
   <div class="container">
     <h1>All projects</h1>
 
-    <!-- Single project template -->
     <div class="row row-cols-3">
-      <div class="col">
-        <div class="card">
-          <img src="..." class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
+      <div class="col" v-for="project in projects" :key="project.id">
+        <ProjectCard :projectInfo="project"></ProjectCard>
       </div>
     </div>
-    <!-- / Single project template -->
   </div>
 </template>
 
 <style scoped lang="scss">
-@use '../style/partials/variables' as *;
+//@use '../style/partials/variables' as *;
 </style>
