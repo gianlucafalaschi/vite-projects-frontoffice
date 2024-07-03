@@ -1,5 +1,5 @@
 <script>
-  import ProjectsList from './components/ProjectsList.vue';
+  import ProjectsList from './pages/ProjectsList.vue';
   import AppHeader from './components/AppHeader.vue';
   
   export default {
