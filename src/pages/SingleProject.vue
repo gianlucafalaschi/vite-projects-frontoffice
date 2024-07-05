@@ -7,8 +7,8 @@ export default {
 <template>
     <div class="container">
         <h1>Project name</h1>
-
-        <div>Per leggere slug della pagina slug: {{ $route.params.slug }}</div>
+        <!-- sintassi per leggere lo slug della pagina -->
+        <div>Per leggere slug della pagina slug: {{ $route.params.slug }}</div>  
     </div>
 
 </template>
