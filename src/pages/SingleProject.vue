@@ -34,7 +34,7 @@ export default {
                 <strong>Type</strong>: {{ project.type.name }}
             </div>
             <div v-if="project.technologies.length > 0">
-                <div><strong>Technologies</strong>:</div>
+                <div class="mb-2"><strong>Technologies</strong>:</div>
                 <div class="d-flex gap-1">
                     <div v-for="technology in project.technologies" class="badge rounded-pill text-bg-success"> {{ technology.name }}</div>
                 </div>

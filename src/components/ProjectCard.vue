@@ -18,7 +18,7 @@ export default {
             </div>
             
             <p v-if="projectInfo.summary" class="card-text">{{ projectInfo.summary }}</p>
-            <!--  <a href="#" class="btn btn-primary">Go somewhere</a> -->
+            <router-link :to="{name:'single-project', params: {'slug': projectInfo.slug}}" class="btn btn-primary">Details</router-link>
           </div>
     </div>
 </template>
